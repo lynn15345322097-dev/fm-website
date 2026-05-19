@@ -10,11 +10,11 @@ interface Props {
 }
 
 const GRADIENTS: Record<string, string> = {
-  '建筑外观': 'from-amber-gold/20 via-film-black-light to-dark-red/20',
-  '展厅空间': 'from-film-black-lighter via-amber-gold/10 to-film-black-light',
-  '技术器物': 'from-dark-red/20 via-film-black-light to-amber-gold/10',
-  '场景复原': 'from-amber-gold/10 via-film-black-lighter to-dark-red/10',
-  '互动装置': 'from-dark-red/10 via-amber-gold/10 to-film-black-lighter',
+  '建筑外观': 'from-stone-100 via-white to-teal-50',
+  '展厅空间': 'from-slate-100 via-white to-stone-100',
+  '技术器物': 'from-amber-50 via-white to-stone-100',
+  '场景复原': 'from-teal-50 via-white to-amber-50',
+  '互动装置': 'from-stone-100 via-white to-cyan-50',
 };
 
 const CATEGORY_ICONS: Record<string, string> = {
@@ -52,7 +52,7 @@ export default function PhotoGallery({ photos }: Props) {
             className={`px-4 py-2 rounded-lg text-sm transition-all ${
               activeCategory === cat
                 ? 'bg-amber-gold text-film-black font-medium'
-                : 'bg-film-black-lighter text-warm-white-dim hover:text-warm-white hover:bg-film-black-light'
+                : 'bg-stone-100 text-stone-600 hover:text-stone-950 hover:bg-stone-200'
             }`}
           >
             {cat !== '全部' && <span className="mr-1.5">{CATEGORY_ICONS[cat]}</span>}
@@ -72,7 +72,7 @@ export default function PhotoGallery({ photos }: Props) {
             <button
               key={`${photo.category}-${idx}`}
               onClick={() => setLightboxIndex(photos.indexOf(photo))}
-              className="group relative aspect-[4/3] rounded-xl overflow-hidden border border-film-black-lighter hover:border-amber-gold/40 transition-all duration-300"
+              className="group relative aspect-[4/3] overflow-hidden rounded-xl border border-stone-200 transition-all duration-300 hover:border-teal-300"
             >
               <div
                 className={`absolute inset-0 bg-linear-to-br ${
@@ -83,13 +83,13 @@ export default function PhotoGallery({ photos }: Props) {
                 <span className="text-3xl mb-2 opacity-50">
                   {CATEGORY_ICONS[photo.category] || '📷'}
                 </span>
-                <span className="text-warm-white-dim/60 text-xs text-center line-clamp-2">
+                <span className="line-clamp-2 text-center text-xs text-stone-600">
                   {photo.caption}
                 </span>
               </div>
               {/* Hover overlay */}
-              <div className="absolute inset-0 bg-film-black/0 group-hover:bg-film-black/40 transition-all duration-300 flex items-center justify-center">
-                <span className="text-warm-white/0 group-hover:text-warm-white text-sm transition-all duration-300">
+              <div className="absolute inset-0 flex items-center justify-center bg-white/0 transition-all duration-300 group-hover:bg-white/75">
+                <span className="text-sm text-stone-950/0 transition-all duration-300 group-hover:text-stone-950">
                   点击查看
                 </span>
               </div>

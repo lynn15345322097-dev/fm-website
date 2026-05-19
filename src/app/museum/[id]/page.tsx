@@ -1,5 +1,6 @@
+import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { MapPin, Tag } from 'lucide-react';
+import { ArrowLeft, CheckCircle2, MapPin, Tag } from 'lucide-react';
 import { getMuseumById, getMuseumsByCity } from '@/lib/museums';
 import PhotoGallery from '@/components/PhotoGallery';
 import MuseumCard from '@/components/MuseumCard';
@@ -31,135 +32,118 @@ export default async function MuseumDetailPage({ params }: Props) {
   );
 
   return (
-    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-      {/* Header banner */}
-      <div className="h-56 md:h-72 rounded-2xl bg-linear-to-br from-film-black-lighter via-dark-red/10 to-film-black-light border border-film-black-lighter flex items-center justify-center mb-8">
-        <div className="text-center">
-          <h1 className="font-serif text-3xl md:text-4xl text-warm-white mb-2">
-            {museum.name}
-          </h1>
-          <p className="text-warm-white-dim/60 text-sm">{museum.nameEn}</p>
-        </div>
-      </div>
+    <div className="bg-stone-50">
+      <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
+        <Link
+          href="/map"
+          className="mb-6 inline-flex items-center gap-2 text-sm text-teal-700 hover:text-teal-900"
+        >
+          <ArrowLeft className="h-4 w-4" />
+          返回地图
+        </Link>
 
-      {/* Info bar */}
-      <div className="flex flex-wrap items-center gap-4 mb-8 pb-6 border-b border-film-black-lighter">
-        <div className="flex items-center gap-1.5 text-warm-white-dim/70 text-sm">
-          <MapPin className="w-4 h-4 text-amber-gold" />
-          <span>{museum.city}</span>
-        </div>
-        <span className="text-warm-white-dim/30">|</span>
-        <span className="text-warm-white-dim/70 text-sm">{museum.type}</span>
-        <span className="text-warm-white-dim/30">|</span>
-        <div className="flex flex-wrap gap-2">
-          {museum.tags.map((tag) => (
-            <span
-              key={tag}
-              className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-film-black-lighter text-warm-white-dim/60 text-xs"
-            >
-              <Tag className="w-3 h-3" />
-              {tag}
-            </span>
-          ))}
-        </div>
-      </div>
+        <section className="rounded-2xl border border-stone-200 bg-white p-6 shadow-sm md:p-8">
+          <div className="grid gap-8 lg:grid-cols-[1fr_320px]">
+            <div>
+              <p className="mb-3 text-sm text-stone-500">
+                {museum.region} / {museum.province} / {museum.city}
+              </p>
+              <h1 className="text-3xl font-semibold leading-tight text-stone-950 md:text-5xl">
+                {museum.name}
+              </h1>
+              <p className="mt-3 text-base text-stone-500">{museum.nameEn}</p>
 
-      {/* Content grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
-        {/* Main content */}
-        <div className="lg:col-span-2 space-y-8">
-          {/* Description */}
-          <section>
-            <h2 className="font-serif text-xl text-amber-gold mb-4 flex items-center gap-2">
-              <span className="w-1 h-5 bg-amber-gold rounded-full" />
-              简介
-            </h2>
-            <p className="text-warm-white-dim/80 leading-relaxed">{museum.description}</p>
-          </section>
-
-          {/* Space observation */}
-          <section>
-            <h2 className="font-serif text-xl text-amber-gold mb-4 flex items-center gap-2">
-              <span className="w-1 h-5 bg-amber-gold rounded-full" />
-              空间观察
-            </h2>
-            <p className="text-warm-white-dim/80 leading-relaxed">{museum.spaceObservation}</p>
-          </section>
-
-          {/* Exhibition analysis */}
-          <section>
-            <h2 className="font-serif text-xl text-amber-gold mb-4 flex items-center gap-2">
-              <span className="w-1 h-5 bg-amber-gold rounded-full" />
-              展陈分析
-            </h2>
-            <p className="text-warm-white-dim/80 leading-relaxed">{museum.exhibitionAnalysis}</p>
-          </section>
-        </div>
-
-        {/* Sidebar info */}
-        <div className="space-y-6">
-          <div className="bg-film-black-light border border-film-black-lighter rounded-xl p-5">
-            <h3 className="text-sm text-warm-white-dim/50 uppercase tracking-wider mb-3">
-              基本信息
-            </h3>
-            <div className="space-y-3">
-              <div>
-                <p className="text-xs text-warm-white-dim/40">中文名称</p>
-                <p className="text-sm text-warm-white">{museum.name}</p>
-              </div>
-              <div>
-                <p className="text-xs text-warm-white-dim/40">英文名称</p>
-                <p className="text-sm text-warm-white">{museum.nameEn}</p>
-              </div>
-              <div>
-                <p className="text-xs text-warm-white-dim/40">城市</p>
-                <p className="text-sm text-warm-white">{museum.city}</p>
-              </div>
-              <div>
-                <p className="text-xs text-warm-white-dim/40">类型</p>
-                <p className="text-sm text-warm-white">{museum.type}</p>
-              </div>
-              <div>
-                <p className="text-xs text-warm-white-dim/40">坐标</p>
-                <p className="text-sm text-warm-white">
-                  {museum.coordinates[0].toFixed(4)}°, {museum.coordinates[1].toFixed(4)}°
-                </p>
+              <div className="mt-6 flex flex-wrap gap-2">
+                <span className="rounded-full bg-teal-50 px-3 py-1 text-sm text-teal-800">
+                  {museum.nature}
+                </span>
+                {museum.visited && (
+                  <span className="inline-flex items-center gap-1 rounded-full bg-amber-50 px-3 py-1 text-sm text-amber-800">
+                    <CheckCircle2 className="h-3.5 w-3.5" />
+                    已实地考察
+                  </span>
+                )}
+                {museum.tags.slice(0, 8).map((tag) => (
+                  <span
+                    key={tag}
+                    className="inline-flex items-center gap-1 rounded-full bg-stone-100 px-3 py-1 text-sm text-stone-600"
+                  >
+                    <Tag className="h-3.5 w-3.5" />
+                    {tag}
+                  </span>
+                ))}
               </div>
             </div>
-          </div>
 
-          <a
-            href={`/map`}
-            className="block text-center w-full px-4 py-3 bg-dark-red hover:bg-dark-red-hover text-warm-white rounded-lg text-sm transition-all"
-          >
-            在地图上查看
-          </a>
-        </div>
-      </div>
-
-      {/* Photo gallery */}
-      <section className="mb-12">
-        <h2 className="font-serif text-xl text-amber-gold mb-6 flex items-center gap-2">
-          <span className="w-1 h-5 bg-amber-gold rounded-full" />
-          照片墙
-        </h2>
-        <PhotoGallery photos={museum.photos} />
-      </section>
-
-      {/* Related museums */}
-      {relatedMuseums.length > 0 && (
-        <section>
-          <h2 className="font-serif text-xl text-amber-gold mb-6 flex items-center gap-2">
-            <span className="w-1 h-5 bg-amber-gold rounded-full" />
-            同城展示空间
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {relatedMuseums.map((m) => (
-              <MuseumCard key={m.id} museum={m} />
-            ))}
+            <aside className="rounded-xl border border-stone-200 bg-stone-50 p-5">
+              <h2 className="mb-4 text-sm font-semibold text-stone-950">基本信息</h2>
+              <dl className="space-y-3 text-sm">
+                <div>
+                  <dt className="text-stone-500">地址</dt>
+                  <dd className="mt-1 text-stone-900">{museum.address}</dd>
+                </div>
+                <div>
+                  <dt className="text-stone-500">类型</dt>
+                  <dd className="mt-1 text-stone-900">{museum.type}</dd>
+                </div>
+                <div>
+                  <dt className="text-stone-500">坐标</dt>
+                  <dd className="mt-1 text-stone-900">
+                    {museum.coordinates[0].toFixed(4)}, {museum.coordinates[1].toFixed(4)}
+                  </dd>
+                </div>
+              </dl>
+              <Link
+                href="/map"
+                className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-teal-700 px-4 py-2.5 text-sm font-medium text-white hover:bg-teal-800"
+              >
+                <MapPin className="h-4 w-4" />
+                在地图中查看
+              </Link>
+            </aside>
           </div>
         </section>
-      )}
+
+        <div className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-3">
+          <main className="space-y-6 lg:col-span-2">
+            {[
+              ['简介', museum.description],
+              ['空间观察', museum.spaceObservation],
+              ['展陈分析', museum.exhibitionAnalysis],
+            ].map(([title, text]) => (
+              <section key={title} className="rounded-2xl border border-stone-200 bg-white p-6 shadow-sm">
+                <h2 className="mb-4 text-xl font-semibold text-stone-950">{title}</h2>
+                <p className="leading-8 text-stone-700">{text}</p>
+              </section>
+            ))}
+          </main>
+
+          <aside className="rounded-2xl border border-stone-200 bg-white p-6 shadow-sm">
+            <h2 className="mb-4 text-lg font-semibold text-stone-950">研究提示</h2>
+            <ul className="space-y-3 text-sm leading-6 text-stone-600">
+              <li>观察空间入口与展厅动线如何组织电影史叙事。</li>
+              <li>记录技术器物、场景复原和互动装置的比例。</li>
+              <li>补充实地照片后，可进入图像档案分类展示。</li>
+            </ul>
+          </aside>
+        </div>
+
+        <section className="mt-8 rounded-2xl border border-stone-200 bg-white p-6 shadow-sm">
+          <h2 className="mb-6 text-xl font-semibold text-stone-950">照片墙</h2>
+          <PhotoGallery photos={museum.photos} />
+        </section>
+
+        {relatedMuseums.length > 0 && (
+          <section className="mt-8">
+            <h2 className="mb-5 text-xl font-semibold text-stone-950">同城展示空间</h2>
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              {relatedMuseums.map((m) => (
+                <MuseumCard key={m.id} museum={m} />
+              ))}
+            </div>
+          </section>
+        )}
+      </div>
     </div>
   );
 }

@@ -22,9 +22,21 @@ export function getMuseumsByIds(ids: string[]): Museum[] {
 }
 
 export function getAllCities(): string[] {
-  return [...new Set(museums.map((m) => m.city))];
+  return [...new Set(museums.map((m) => m.city))].sort();
+}
+
+export function getAllRegions(): string[] {
+  return [...new Set(museums.map((m) => m.region))].sort();
+}
+
+export function getAllProvinces(): string[] {
+  return [...new Set(museums.map((m) => m.province))].sort();
+}
+
+export function getAllNatures(): string[] {
+  return [...new Set(museums.map((m) => m.nature))].sort();
 }
 
 export function getAllTags(): string[] {
-  return [...new Set(museums.flatMap((m) => m.tags))];
+  return [...new Set(museums.flatMap((m) => m.tags))].sort();
 }

@@ -3,7 +3,7 @@ import { ArrowDown, Map, Route } from 'lucide-react';
 
 export default function HomePage() {
   return (
-    <div className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
+    <div className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-film-black">
       {/* Film projection beam effect */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] md:w-[900px] md:h-[900px] rounded-full bg-radial from-amber-gold/8 via-amber-gold/3 to-transparent animate-beam" />

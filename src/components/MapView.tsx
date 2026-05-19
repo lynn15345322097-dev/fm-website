@@ -47,11 +47,14 @@ function FitBounds({ museums }: { museums: Museum[] }) {
 interface Props {
   museumId?: string;
   museumIds?: string[];
+  museums?: Museum[];
 }
 
-export default function MapView({ museumId, museumIds }: Props) {
+export default function MapView({ museumId, museumIds, museums: providedMuseums }: Props) {
   const allMuseums = useMemo(() => getAllMuseums(), []);
-  const museums = museumIds
+  const museums = providedMuseums
+    ? providedMuseums
+    : museumIds
     ? allMuseums.filter((m) => museumIds.includes(m.id))
     : museumId
       ? allMuseums.filter((m) => m.id === museumId)
@@ -66,7 +69,7 @@ export default function MapView({ museumId, museumIds }: Props) {
     >
       <TileLayer
         attribution='&copy; <a href="https://carto.com/">CARTO</a>'
-        url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
+        url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
       />
       <FitBounds museums={museums} />
       {museums.map((museum) => (
@@ -77,18 +80,18 @@ export default function MapView({ museumId, museumIds }: Props) {
         >
           <Popup>
             <div className="min-w-[200px]">
-              <h3 className="font-serif text-base text-warm-white mb-1">
+              <h3 className="text-base font-semibold text-stone-950 mb-1">
                 {museum.name}
               </h3>
-              <p className="text-warm-white-dim/70 text-xs mb-1">
-                {museum.city} · {museum.type}
+              <p className="text-stone-600 text-xs mb-1">
+                {museum.province} · {museum.city} · {museum.nature}
               </p>
-              <p className="text-warm-white-dim/60 text-xs mb-3 line-clamp-2">
+              <p className="text-stone-500 text-xs mb-3 line-clamp-2">
                 {museum.description}
               </p>
               <Link
                 href={`/museum/${museum.id}`}
-                className="inline-block text-xs text-amber-gold hover:text-amber-gold-light transition-colors border border-amber-gold/40 px-3 py-1 rounded"
+                className="inline-block text-xs text-teal-700 hover:text-teal-900 transition-colors border border-teal-200 px-3 py-1 rounded"
               >
                 查看详情 →
               </Link>

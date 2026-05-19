@@ -8,9 +8,15 @@ export interface Museum {
   id: string;
   name: string;
   nameEn: string;
+  region: string;
+  province: string;
   city: string;
+  address: string;
   type: string;
+  nature: string;
+  visited?: boolean;
   tags: string[];
+  categories?: string[];
   coordinates: [number, number];
   description: string;
   spaceObservation: string;
