@@ -1,19 +1,7 @@
 import type { Metadata } from 'next';
-import { Inter, Noto_Serif_SC } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-sans',
-});
-
-const notoSerif = Noto_Serif_SC({
-  subsets: ['latin'],
-  weight: ['400', '600', '700'],
-  variable: '--font-serif',
-});
 
 export const metadata: Metadata = {
   title: '中国电影展示空间的线上图谱',
@@ -27,7 +15,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="zh-CN" className={`${inter.variable} ${notoSerif.variable}`}>
+    <html lang="zh-CN">
       <body className="font-sans antialiased film-grain">
         <Navbar />
         <main className="min-h-screen pt-16">{children}</main>
