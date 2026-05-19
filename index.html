@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="FM Website - a lightweight static FM audio experience.">
+    <title>FM Website</title>
+    <link rel="stylesheet" href="src/styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="player" aria-label="FM player">
+        <div class="brand-row">
+          <p class="eyebrow">Live signal</p>
+          <span class="status" id="statusLabel">Paused</span>
+        </div>
+
+        <div class="hero-grid">
+          <div class="station-copy">
+            <h1>FM Website</h1>
+            <p id="stationDescription">
+              A calm late-night mix with soft electronic textures and city ambience.
+            </p>
+          </div>
+
+          <div class="tuner" aria-label="Current station">
+            <div class="dial">
+              <span id="stationFrequency">92.8</span>
+            </div>
+            <div class="waveform" aria-hidden="true">
+              <span></span><span></span><span></span><span></span><span></span><span></span>
+              <span></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="controls">
+          <button class="icon-button" id="previousStation" type="button" aria-label="Previous station">
+            <span aria-hidden="true">‹</span>
+          </button>
+          <button class="play-button" id="playToggle" type="button">Play</button>
+          <button class="icon-button" id="nextStation" type="button" aria-label="Next station">
+            <span aria-hidden="true">›</span>
+          </button>
+        </div>
+      </section>
+
+      <section class="station-list" aria-label="Stations">
+        <article class="station-card is-active" data-station="0">
+          <span>92.8</span>
+          <strong>Night Drive</strong>
+        </article>
+        <article class="station-card" data-station="1">
+          <span>101.4</span>
+          <strong>Morning Wire</strong>
+        </article>
+        <article class="station-card" data-station="2">
+          <span>88.6</span>
+          <strong>Analog Room</strong>
+        </article>
+      </section>
+    </main>
+
+    <script src="src/main.js"></script>
+  </body>
+</html>
