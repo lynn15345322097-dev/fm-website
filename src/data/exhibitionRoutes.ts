@@ -8,6 +8,43 @@ export const exhibitionRoutes: ExhibitionRoute[] = [
     summary:
       '电影从诞生之初的街头杂耍，到成为艺术殿堂的组成部分，再到进入博物馆成为文化遗产，经历了一个多世纪的变迁。本条展线沿着中国电影博物馆的发展轨迹，追溯电影如何从光影流动的银幕走向静态陈列的展柜，以及这种空间转换如何重新定义了我们对电影的认知。',
     museums: ['cn-film-museum', 'sh-film-museum', 'cc-film-museum', 'hk-film-archive', 'china-film-archive'],
+    chapters: [
+      {
+        title: '从银幕到展柜',
+        subtitle: '电影作品如何被转化为可陈列、可观看、可叙述的博物馆对象。',
+        researchQuestion: '当电影从流动影像变成展厅中的物、图文和装置时，哪些内容被保留下来，哪些观看经验被改变？',
+        museumIds: ['cn-film-museum', 'sh-film-museum'],
+        keywords: ['博物馆化', '电影史叙事', '展柜', '观影经验'],
+      },
+      {
+        title: '从胶片到档案',
+        subtitle: '电影保存机构如何把胶片、海报、剧本和修复流程转化为公共知识。',
+        researchQuestion: '档案空间如何在“保存”与“展示”之间建立新的公众入口？',
+        museumIds: ['china-film-archive', 'hk-film-archive', 'tfai'],
+        keywords: ['电影档案', '胶片保存', '数字修复', '学术放映'],
+      },
+      {
+        title: '从片场到遗址',
+        subtitle: '制片厂旧址和生产现场如何进入遗产保护与文化消费。',
+        researchQuestion: '原址空间是否比普通展厅更能呈现电影生产的劳动、技术和制度痕迹？',
+        museumIds: ['cc-film-museum', 'xi-film-museum', 'zhu-film-museum', 'emei-film-studio'],
+        keywords: ['制片厂旧址', '工业遗产', '摄影棚', '生产现场'],
+      },
+      {
+        title: '从器物到技术遗产',
+        subtitle: '摄影机、放映机、剪辑台等技术物如何成为电影史证据。',
+        researchQuestion: '当技术设备脱离使用环境进入展览，它们是作为工具、文物，还是作为技术谱系中的节点被观看？',
+        museumIds: ['china-projector-museum', 'yancheng-film-projector-hall', 'daqi-radio-film-museum', 'xi-film-museum'],
+        keywords: ['放映机', '摄影机', '技术物', '电影技术遗产'],
+      },
+      {
+        title: '从地方记忆到公共叙事',
+        subtitle: '地方电影展示空间如何把城市经验、影人记忆和乡土故事纳入电影史。',
+        researchQuestion: '地方性电影记忆如何补充国家电影史和产业史叙事？',
+        museumIds: ['xie-jin-rural-film-museum', 'dali-rural-film-history-museum', 'shantou-film-culture-hall'],
+        keywords: ['地方记忆', '影人故里', '乡村电影', '公共文化'],
+      },
+    ],
     content: `电影最初并非作为"文化遗产"而存在。在卢米埃尔兄弟的《火车进站》首次公映后的很长一段时间里，电影被视为廉价的娱乐形式，与杂耍、马戏为伍。直到20世纪中期，电影才开始被承认为一门独立的艺术形式，电影保存和展示的问题也随之浮出水面。
 
 中国的电影博物馆化进程始于20世纪80年代。1982年，中国电影资料馆成立，标志着电影档案意识的觉醒。2005年，中国电影博物馆——这座当时世界上最大的国家级电影专业博物馆在北京落成，标志着中国电影展示空间进入了一个全新的阶段。
@@ -38,6 +75,43 @@ export const exhibitionRoutes: ExhibitionRoute[] = [
       'hk-film-archive',
       'cq-film-museum',
     ],
+    chapters: [
+      {
+        title: '北京：国家电影记忆与档案中心',
+        subtitle: '国家级电影博物馆、电影资料馆和高校电影教育空间的集中。',
+        researchQuestion: '首都的电影展示空间如何组织国家电影史、档案保存和电影教育三种叙事？',
+        museumIds: ['cn-film-museum', 'china-film-archive', 'bfa-film-museum', 'daqi-radio-film-museum'],
+        keywords: ['北京', '国家叙事', '电影档案', '电影教育'],
+      },
+      {
+        title: '上海：都市电影文化与海派影像记忆',
+        subtitle: '从制片厂、城市电影史到影视基地，上海呈现电影与都市现代性的关系。',
+        researchQuestion: '上海的电影展示空间如何把城市记忆、明星文化和制片厂历史转化为展览经验？',
+        museumIds: ['sh-film-museum', 'sh-film-park'],
+        keywords: ['上海', '海派文化', '都市影像', '影视基地'],
+      },
+      {
+        title: '长春/西安：电影工业基地的遗产转型',
+        subtitle: '老牌电影制片基地通过旧址保护与产业园改造进入公共文化空间。',
+        researchQuestion: '电影工业基地如何在遗产保护、文旅开发和电影史书写之间取得平衡？',
+        museumIds: ['cc-film-museum', 'xi-film-museum'],
+        keywords: ['长春', '西安', '工业遗产', '制片厂'],
+      },
+      {
+        title: '青岛/横店等：影视生产空间的展示消费化',
+        subtitle: '影视生产基地和电影科技展示逐渐与旅游、体验和城市品牌结合。',
+        researchQuestion: '当影视生产空间面向游客开放时，电影工业被转译成怎样的消费景观？',
+        museumIds: ['qd-film-museum', 'china-projector-museum', 'sh-film-park'],
+        keywords: ['影视基地', '电影科技', '文旅', '展示消费'],
+      },
+      {
+        title: '民间收藏空间：被制度化博物馆忽略的技术线索',
+        subtitle: '民间收藏馆保存了大量放映机、收音机、胶片和地方放映记忆。',
+        researchQuestion: '民间收藏如何补足正式电影博物馆对基层放映技术和日常观影经验的缺席？',
+        museumIds: ['daqi-radio-film-museum', 'shanxi-media-museum', 'changshu-ruidian-film-archive', 'jiujin-film-collection', 'old-time-av-exhibition'],
+        keywords: ['民间收藏', '基层放映', '地方技术史', '非国有博物馆'],
+      },
+    ],
     content: `将中国电影展示空间标注在地图上，一幅有趣的文化地理图景便浮现出来。
 
 **北京——政治与文化中心**。北京集中了中国电影博物馆和中国电影资料馆两个国家级机构，体现了首都作为文化中心的集聚效应。这两个空间分别代表了电影展示的两种取向：面向公众的科普教育与面向学术的档案研究。
@@ -65,6 +139,43 @@ export const exhibitionRoutes: ExhibitionRoute[] = [
       'china-film-archive',
       'sh-film-park',
       'bfa-film-museum',
+    ],
+    chapters: [
+      {
+        title: '器物陈列：摄影机、放映机与胶片',
+        subtitle: '以技术设备作为电影史的物质证据。',
+        researchQuestion: '摄影机、放映机和胶片在展厅中如何从工具转化为可被解释的遗产？',
+        museumIds: ['cn-film-museum', 'xi-film-museum', 'china-projector-museum', 'yancheng-film-projector-hall'],
+        keywords: ['摄影机', '放映机', '胶片', '器物陈列'],
+      },
+      {
+        title: '场景复原：片场、影院与工作间',
+        subtitle: '通过空间复原让观众进入电影生产与观看的历史现场。',
+        researchQuestion: '场景复原是在还原历史，还是在制造一种可体验的电影记忆？',
+        museumIds: ['cc-film-museum', 'sh-film-park', 'cn-film-museum', 'sh-film-museum'],
+        keywords: ['场景复原', '摄影棚', '影院空间', '工作间'],
+      },
+      {
+        title: '互动体验：配音、绿幕与虚拟拍摄',
+        subtitle: '观众通过操作界面进入电影技术过程。',
+        researchQuestion: '互动体验能否帮助观众理解电影技术，还是仅仅强化娱乐化参与？',
+        museumIds: ['cn-film-museum', 'qd-film-museum', 'xi-film-museum', 'bfa-film-museum'],
+        keywords: ['互动装置', '配音', '绿幕', '虚拟拍摄'],
+      },
+      {
+        title: '技术谱系：从机械电影到数字影像',
+        subtitle: '用时间轴和设备序列解释电影技术的连续演进。',
+        researchQuestion: '技术谱系式展陈如何处理“进步叙事”和被遗忘技术之间的关系？',
+        museumIds: ['cn-film-museum', 'qd-film-museum', 'hk-film-archive', 'tfai'],
+        keywords: ['技术谱系', '机械电影', '数字影像', '修复'],
+      },
+      {
+        title: '幕后工艺：声音、剪辑、洗印与特效',
+        subtitle: '把电影生产中不可见的劳动和工艺带入展厅。',
+        researchQuestion: '幕后工艺展示如何改变观众对电影作者、技术劳动和工业流程的理解？',
+        museumIds: ['cc-film-museum', 'zhu-film-museum', 'emei-film-studio', 'sh-film-park'],
+        keywords: ['剪辑', '录音', '洗印', '幕后工艺'],
+      },
     ],
     content: `技术物在电影博物馆中占据着特殊的地位。它们既是展品，又是工具；既是历史的见证，也是叙事的媒介。不同的博物馆对技术遗产的展陈方式各有侧重，反映了不同的策展理念和资源条件。
 

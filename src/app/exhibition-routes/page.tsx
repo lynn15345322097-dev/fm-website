@@ -7,7 +7,8 @@ export default function ExhibitionRoutesPage() {
   const routes = getAllExhibitionRoutes();
 
   return (
-    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <div className="min-h-screen bg-film-black">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
       {/* Header */}
       <div className="mb-12 text-center">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-gold/10 text-amber-gold text-xs tracking-wider mb-4">
@@ -54,6 +55,10 @@ export default function ExhibitionRoutesPage() {
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
                       <span className="text-xs text-warm-white-dim/40">
+                        {route.chapters.length} 个章节
+                      </span>
+                      <span className="text-warm-white-dim/20">·</span>
+                      <span className="text-xs text-warm-white-dim/40">
                         途经 {routeMuseums.length} 个展示空间
                       </span>
                       <span className="text-warm-white-dim/20">·</span>
@@ -85,6 +90,7 @@ export default function ExhibitionRoutesPage() {
             </Link>
           );
         })}
+      </div>
       </div>
     </div>
   );

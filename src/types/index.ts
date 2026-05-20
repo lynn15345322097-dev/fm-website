@@ -31,6 +31,15 @@ export interface ExhibitionRoute {
   summary: string;
   museums: string[];
   content: string;
+  chapters: ExhibitionRouteChapter[];
+}
+
+export interface ExhibitionRouteChapter {
+  title: string;
+  subtitle: string;
+  researchQuestion: string;
+  museumIds: string[];
+  keywords: string[];
 }
 
 export const PHOTO_CATEGORIES = [
