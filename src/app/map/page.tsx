@@ -2,7 +2,7 @@
 
 import dynamic from 'next/dynamic';
 import { useState, useMemo } from 'react';
-import { Search, MapPin, RotateCcw } from 'lucide-react';
+import { Search, MapPin, RotateCcw, Layers } from 'lucide-react';
 import {
   getAllMuseums,
   getAllNatures,
@@ -12,6 +12,8 @@ import {
 
 const MapView = dynamic(() => import('@/components/MapView'), { ssr: false });
 
+type DisplayMode = 'normal' | 'cluster';
+
 export default function MapPage() {
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [search, setSearch] = useState('');
@@ -19,6 +21,7 @@ export default function MapPage() {
   const [selectedProvince, setSelectedProvince] = useState('');
   const [selectedNature, setSelectedNature] = useState('');
   const [visitedOnly, setVisitedOnly] = useState(false);
+  const [displayMode, setDisplayMode] = useState<DisplayMode>('cluster');
 
   const allMuseums = useMemo(() => getAllMuseums(), []);
   const regions = useMemo(() => getAllRegions(), []);
@@ -53,7 +56,23 @@ export default function MapPage() {
       <div className="pointer-events-none absolute inset-0 z-[1] bg-[radial-gradient(circle_at_72%_18%,rgba(212,160,74,0.16),transparent_28%),linear-gradient(90deg,rgba(245,240,232,0.34),rgba(245,240,232,0.04))]" />
       {/* Map */}
       <div className="absolute inset-0">
-        <MapView museums={filtered} />
+        <MapView museums={filtered} mode={displayMode} showLegend />
+      </div>
+
+      {/* Display mode toggle */}
+      <div className="absolute top-4 left-1/2 -translate-x-1/2 z-20 flex rounded-lg border border-amber-gold/40 bg-warm-white/90 shadow-lg shadow-stone-300/40 backdrop-blur overflow-hidden">
+        <button
+          onClick={() => setDisplayMode('normal')}
+          className={`px-4 py-2 text-sm transition-all ${displayMode === 'normal' ? 'bg-amber-gold text-white' : 'text-stone-600 hover:text-stone-900'}`}
+        >
+          普通点位
+        </button>
+        <button
+          onClick={() => setDisplayMode('cluster')}
+          className={`px-4 py-2 text-sm transition-all ${displayMode === 'cluster' ? 'bg-amber-gold text-white' : 'text-stone-600 hover:text-stone-900'}`}
+        >
+          聚类视图
+        </button>
       </div>
 
       {/* Toggle sidebar button */}

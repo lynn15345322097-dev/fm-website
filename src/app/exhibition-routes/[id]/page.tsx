@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { ArrowLeft, ArrowRight, Map, Search } from 'lucide-react';
 import { getExhibitionRouteById } from '@/data/exhibitionRoutes';
 import { getMuseumsByIds } from '@/lib/museums';
+import RouteMapView from './RouteMapView';
 
 interface Props {
   params: Promise<{ id: string }>;
@@ -49,6 +50,11 @@ export default async function ExhibitionRouteDetailPage({ params }: Props) {
             </span>
           </div>
         </header>
+
+        {/* Route Map */}
+        <section className="mb-10 rounded-2xl border border-amber-gold/15 bg-film-black-light/50 overflow-hidden" style={{ height: 420 }}>
+          <RouteMapView routeMuseums={routeMuseums} routeIndex={0} />
+        </section>
 
         <section className="space-y-6">
           {route.chapters.map((chapter, index) => {

@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Film, Map, Route, ImageIcon, Info, Menu, Microscope, X } from 'lucide-react';
+import { Film, Map, Route, ImageIcon, Info, Menu, Microscope, X, BarChart3 } from 'lucide-react';
 import { useState } from 'react';
 
 const NAV_ITEMS = [
@@ -10,6 +10,7 @@ const NAV_ITEMS = [
   { href: '/map', label: '地图', icon: Map },
   { href: '/exhibition-routes', label: '展线', icon: Route },
   { href: '/archive', label: '图像档案', icon: ImageIcon },
+  { href: '/spatial-analysis', label: '空间分析', icon: BarChart3 },
   { href: '/method', label: '研究方法', icon: Microscope },
   { href: '/about', label: '关于', icon: Info },
 ];
