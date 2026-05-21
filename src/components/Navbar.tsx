@@ -27,7 +27,7 @@ export default function Navbar() {
             className="flex items-center gap-2 text-warm-white hover:text-amber-gold transition-colors"
           >
             <Film className="w-5 h-5" />
-            <span className="text-lg font-semibold tracking-wide">线上图谱</span>
+            <span className="text-base font-medium tracking-normal">线上图谱</span>
           </Link>
 
           {/* Desktop nav */}

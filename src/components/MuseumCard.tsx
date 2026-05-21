@@ -10,17 +10,17 @@ export default function MuseumCard({ museum }: Props) {
   return (
     <Link
       href={`/museum/${museum.id}`}
-      className="group block overflow-hidden rounded-xl border border-stone-200 bg-white transition-all duration-300 hover:border-teal-300 hover:shadow-lg hover:shadow-stone-200/70"
+      className="group block overflow-hidden rounded-xl border border-stone-200 bg-white transition-all duration-300 hover:border-amber-gold/60 hover:shadow-lg hover:shadow-stone-200/70"
     >
       {/* Gradient placeholder banner */}
-      <div className="flex h-36 items-center justify-center bg-linear-to-br from-stone-100 via-white to-teal-50">
+      <div className="flex h-36 items-center justify-center bg-linear-to-br from-stone-100 via-white to-amber-50">
         <span className="px-4 text-center text-lg font-semibold tracking-wide text-stone-400">
           {museum.name}
         </span>
       </div>
 
       <div className="p-5">
-        <h3 className="mb-2 text-lg font-semibold text-stone-950 transition-colors group-hover:text-teal-800">
+        <h3 className="mb-2 text-lg font-semibold text-stone-950 transition-colors group-hover:text-dark-red">
           {museum.name}
         </h3>
 

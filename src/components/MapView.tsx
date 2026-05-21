@@ -24,10 +24,10 @@ L.Marker.prototype.options.icon = DefaultIcon;
 function createCustomIcon() {
   return L.divIcon({
     className: 'custom-marker',
-    html: '<div style="width:16px;height:16px;border-radius:50%;background:#d4a04a;border:3px solid #f5f0e8;box-shadow:0 0 12px rgba(212,160,74,0.6);"></div>',
-    iconSize: [16, 16],
-    iconAnchor: [8, 8],
-    popupAnchor: [0, -10],
+    html: '<div class="custom-marker-dot"></div>',
+    iconSize: [10, 10],
+    iconAnchor: [5, 5],
+    popupAnchor: [0, -8],
   });
 }
 
@@ -69,7 +69,7 @@ export default function MapView({ museumId, museumIds, museums: providedMuseums 
     >
       <TileLayer
         attribution='&copy; <a href="https://carto.com/">CARTO</a>'
-        url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
+        url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
       />
       <FitBounds museums={museums} />
       {museums.map((museum) => (
@@ -80,18 +80,18 @@ export default function MapView({ museumId, museumIds, museums: providedMuseums 
         >
           <Popup>
             <div className="min-w-[200px]">
-              <h3 className="text-base font-semibold text-warm-white mb-1">
+              <h3 className="text-sm font-semibold text-stone-950 mb-1">
                 {museum.name}
               </h3>
-              <p className="text-warm-white-dim/70 text-xs mb-1">
+              <p className="text-stone-600 text-xs mb-1">
                 {museum.province} · {museum.city} · {museum.nature}
               </p>
-              <p className="text-warm-white-dim/60 text-xs mb-3 line-clamp-2">
+              <p className="text-stone-500 text-xs mb-3 line-clamp-2">
                 {museum.description}
               </p>
               <Link
                 href={`/museum/${museum.id}`}
-                className="inline-block text-xs text-amber-gold hover:text-amber-gold-light transition-colors border border-amber-gold/40 px-3 py-1 rounded"
+                className="inline-block text-xs text-dark-red hover:text-amber-gold transition-colors border border-amber-gold/50 px-3 py-1 rounded"
               >
                 查看详情 →
               </Link>

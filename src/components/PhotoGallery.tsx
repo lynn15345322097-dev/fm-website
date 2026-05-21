@@ -10,11 +10,11 @@ interface Props {
 }
 
 const GRADIENTS: Record<string, string> = {
-  '建筑外观': 'from-stone-100 via-white to-teal-50',
+  '建筑外观': 'from-stone-100 via-white to-amber-50',
   '展厅空间': 'from-slate-100 via-white to-stone-100',
   '技术器物': 'from-amber-50 via-white to-stone-100',
-  '场景复原': 'from-teal-50 via-white to-amber-50',
-  '互动装置': 'from-stone-100 via-white to-cyan-50',
+  '场景复原': 'from-stone-100 via-white to-amber-50',
+  '互动装置': 'from-stone-100 via-white to-red-50',
 };
 
 const CATEGORY_ICONS: Record<string, string> = {
@@ -72,7 +72,7 @@ export default function PhotoGallery({ photos }: Props) {
             <button
               key={`${photo.category}-${idx}`}
               onClick={() => setLightboxIndex(photos.indexOf(photo))}
-              className="group relative aspect-[4/3] overflow-hidden rounded-xl border border-stone-200 transition-all duration-300 hover:border-teal-300"
+              className="group relative aspect-[4/3] overflow-hidden rounded-xl border border-stone-200 transition-all duration-300 hover:border-amber-gold/60"
             >
               <div
                 className={`absolute inset-0 bg-linear-to-br ${

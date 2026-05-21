@@ -41,7 +41,7 @@ export default function HomePage() {
             An Online Atlas of Chinese Film Exhibition Spaces
           </span>
         </div>
-        <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl text-warm-white leading-tight mb-6 tracking-wide">
+        <h1 className="font-serif text-3xl md:text-5xl lg:text-6xl text-warm-white leading-[1.12] mb-6 tracking-normal">
           中国电影展示空间的
           <span className="block text-amber-gold">线上图谱</span>
         </h1>

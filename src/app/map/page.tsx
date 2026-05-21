@@ -49,8 +49,8 @@ export default function MapPage() {
   };
 
   return (
-    <div className="relative h-[calc(100vh-4rem)] overflow-hidden bg-film-black">
-      <div className="pointer-events-none absolute inset-0 z-[1] bg-[radial-gradient(circle_at_70%_20%,rgba(212,160,74,0.14),transparent_30%),linear-gradient(90deg,rgba(10,10,10,0.12),rgba(10,10,10,0.42))]" />
+    <div className="relative h-[calc(100vh-4rem)] overflow-hidden bg-[#f5f0e8]">
+      <div className="pointer-events-none absolute inset-0 z-[1] bg-[radial-gradient(circle_at_72%_18%,rgba(212,160,74,0.16),transparent_28%),linear-gradient(90deg,rgba(245,240,232,0.34),rgba(245,240,232,0.04))]" />
       {/* Map */}
       <div className="absolute inset-0">
         <MapView museums={filtered} />
@@ -59,15 +59,15 @@ export default function MapPage() {
       {/* Toggle sidebar button */}
       <button
         onClick={() => setSidebarOpen(!sidebarOpen)}
-        className="absolute top-4 left-4 z-20 rounded-lg border border-amber-gold/30 bg-film-black-light/90 px-3 py-2 text-sm text-warm-white shadow-lg shadow-black/30 backdrop-blur hover:border-amber-gold/70 transition-all"
+        className="absolute top-4 left-4 z-20 rounded-lg border border-amber-gold/40 bg-warm-white/90 px-3 py-2 text-sm text-stone-800 shadow-lg shadow-stone-300/40 backdrop-blur hover:border-amber-gold transition-all"
       >
         {sidebarOpen ? '收起面板' : '展开筛选'}
       </button>
 
       {/* Sidebar */}
       <div
-        className={`absolute top-0 left-0 h-full z-10 border-r border-amber-gold/15 bg-film-black/88 shadow-2xl shadow-black/60 backdrop-blur-md transition-all duration-300 ${
-          sidebarOpen ? 'w-[23rem] translate-x-0' : 'w-[23rem] -translate-x-full'
+        className={`absolute top-0 left-0 h-full z-10 border-r border-amber-gold/25 bg-warm-white/88 shadow-2xl shadow-stone-400/30 backdrop-blur-md transition-all duration-300 ${
+          sidebarOpen ? 'w-[20rem] translate-x-0' : 'w-[20rem] -translate-x-full'
         }`}
       >
         <div className="p-5 pt-16 h-full overflow-y-auto">
@@ -75,35 +75,35 @@ export default function MapPage() {
             <p className="mb-1 text-xs tracking-[0.22em] text-amber-gold/70 uppercase">
               Archive Map
             </p>
-            <h1 className="font-serif text-2xl text-warm-white">地图点位</h1>
-            <p className="mt-2 text-sm text-warm-white-dim/65">
+            <h1 className="font-serif text-xl text-stone-950">地图点位</h1>
+            <p className="mt-2 text-sm text-stone-600">
               显示 {filtered.length} / {allMuseums.length} 个展示空间
             </p>
           </div>
 
           {/* Search */}
           <div className="relative mb-5">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-warm-white-dim/45" />
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-stone-400" />
             <input
               type="text"
               placeholder="搜索名称、城市、地址或标签..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="w-full rounded-lg border border-film-black-lighter bg-film-black-light/80 py-2.5 pl-10 pr-4 text-sm text-warm-white placeholder:text-warm-white-dim/35 focus:border-amber-gold/60 focus:outline-none transition-colors"
+              className="w-full rounded-lg border border-stone-200 bg-white/80 py-2.5 pl-10 pr-4 text-sm text-stone-900 placeholder:text-stone-400 focus:border-amber-gold/70 focus:outline-none transition-colors"
             />
           </div>
 
           <div className="grid grid-cols-2 gap-3 mb-5">
             <label className="block">
-              <span className="block text-xs text-warm-white-dim/55 mb-1.5">地区</span>
-              <select value={selectedRegion} onChange={(event) => setSelectedRegion(event.target.value)} className="w-full rounded-lg border border-film-black-lighter bg-film-black-light px-3 py-2 text-sm text-warm-white focus:outline-none focus:border-amber-gold/60">
+              <span className="block text-xs text-stone-500 mb-1.5">地区</span>
+              <select value={selectedRegion} onChange={(event) => setSelectedRegion(event.target.value)} className="w-full rounded-lg border border-stone-200 bg-white/85 px-3 py-2 text-sm text-stone-900 focus:outline-none focus:border-amber-gold/70">
                 <option value="">全部地区</option>
                 {regions.map((region) => <option key={region} value={region}>{region}</option>)}
               </select>
             </label>
             <label className="block">
-              <span className="block text-xs text-warm-white-dim/55 mb-1.5">省份</span>
-              <select value={selectedProvince} onChange={(event) => setSelectedProvince(event.target.value)} className="w-full rounded-lg border border-film-black-lighter bg-film-black-light px-3 py-2 text-sm text-warm-white focus:outline-none focus:border-amber-gold/60">
+              <span className="block text-xs text-stone-500 mb-1.5">省份</span>
+              <select value={selectedProvince} onChange={(event) => setSelectedProvince(event.target.value)} className="w-full rounded-lg border border-stone-200 bg-white/85 px-3 py-2 text-sm text-stone-900 focus:outline-none focus:border-amber-gold/70">
                 <option value="">全部省份</option>
                 {provinces.map((province) => <option key={province} value={province}>{province}</option>)}
               </select>
@@ -112,14 +112,14 @@ export default function MapPage() {
 
           <div className="mb-5">
             <label className="block">
-              <span className="block text-xs text-warm-white-dim/55 mb-1.5">性质</span>
-              <select value={selectedNature} onChange={(event) => setSelectedNature(event.target.value)} className="w-full rounded-lg border border-film-black-lighter bg-film-black-light px-3 py-2 text-sm text-warm-white focus:outline-none focus:border-amber-gold/60">
+              <span className="block text-xs text-stone-500 mb-1.5">性质</span>
+              <select value={selectedNature} onChange={(event) => setSelectedNature(event.target.value)} className="w-full rounded-lg border border-stone-200 bg-white/85 px-3 py-2 text-sm text-stone-900 focus:outline-none focus:border-amber-gold/70">
                 <option value="">全部性质</option>
                 {natures.map((nature) => <option key={nature} value={nature}>{nature}</option>)}
               </select>
             </label>
-            <label className="mt-3 flex items-center gap-2 text-sm text-warm-white-dim">
-              <input type="checkbox" checked={visitedOnly} onChange={(event) => setVisitedOnly(event.target.checked)} className="h-4 w-4 rounded border-film-black-lighter accent-amber-gold" />
+            <label className="mt-3 flex items-center gap-2 text-sm text-stone-600">
+              <input type="checkbox" checked={visitedOnly} onChange={(event) => setVisitedOnly(event.target.checked)} className="h-4 w-4 rounded border-stone-300 accent-amber-gold" />
               只看已实地考察
             </label>
             <button onClick={resetFilters} className="mt-3 inline-flex items-center gap-2 text-xs text-amber-gold/80 hover:text-amber-gold">
@@ -135,12 +135,12 @@ export default function MapPage() {
                 <a
                   key={museum.id}
                   href={`/museum/${museum.id}`}
-                  className="group block rounded-lg border border-film-black-lighter bg-film-black-light/75 p-3 transition-all hover:border-amber-gold/40 hover:bg-film-black-light"
+                  className="group block rounded-lg border border-stone-200 bg-white/72 p-3 transition-all hover:border-amber-gold/50 hover:bg-white"
                 >
-                  <p className="mb-1 text-sm font-medium text-warm-white transition-colors group-hover:text-amber-gold">
+                  <p className="mb-1 text-sm font-medium text-stone-900 transition-colors group-hover:text-dark-red">
                     {museum.name}
                   </p>
-                  <div className="flex items-center gap-1 text-xs text-warm-white-dim/55">
+                  <div className="flex items-center gap-1 text-xs text-stone-500">
                     <MapPin className="w-3 h-3" />
                     <span>{museum.province} · {museum.city}</span>
                     <span className="mx-1">·</span>
