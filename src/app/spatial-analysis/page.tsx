@@ -301,22 +301,22 @@ export default function SpatialAnalysisPage() {
 
   return (
     <div className="min-h-screen bg-[#f5f0e8]">
-      <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="mb-10">
-          <p className="mb-2 text-xs tracking-[0.22em] text-amber-gold/70">
+        <div className="mb-8">
+          <p className="mb-2 text-xs tracking-[0.16em] text-amber-gold/70">
             SPATIAL ANALYSIS
           </p>
-          <h1 className="font-serif text-3xl text-stone-950 md:text-4xl">
+          <h1 className="font-serif text-3xl text-stone-950">
             空间分析
           </h1>
-          <p className="mt-3 max-w-2xl text-stone-600 leading-7">
+          <p className="mt-3 max-w-2xl text-sm text-stone-600 leading-7">
             基于 GIS 方法对中国电影展示空间进行多维度统计分析，涵盖地理分布、区域格局、空间类型与机构性质等维度。
           </p>
         </div>
 
         {/* Overview stats cards */}
-        <div className="mb-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mb-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           <div className="rounded-2xl border border-stone-200 bg-white/80 p-5 shadow-sm">
             <div className="flex items-center gap-3">
               <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-gold/10">
@@ -372,7 +372,7 @@ export default function SpatialAnalysisPage() {
         </div>
 
         {/* Choropleth map + Region bar */}
-        <div className="mb-10 grid gap-6 lg:grid-cols-[2fr_1fr]">
+        <div className="mb-8 grid gap-6 lg:grid-cols-[2fr_1fr]">
           <div className="rounded-2xl border border-stone-200 bg-white/85 p-5 shadow-sm">
             <h2 className="mb-4 font-serif text-lg text-stone-900">省级分布填色图</h2>
             <p className="mb-4 text-xs text-stone-500">
@@ -405,7 +405,7 @@ export default function SpatialAnalysisPage() {
         </div>
 
         {/* Province top 10 + Type pie + Nature pie */}
-        <div className="mb-10 grid gap-6 lg:grid-cols-3">
+        <div className="mb-8 grid gap-6 lg:grid-cols-3">
           <div className="rounded-2xl border border-stone-200 bg-white/85 p-5 shadow-sm">
             <h2 className="mb-4 font-serif text-lg text-stone-900">省份排行 Top 10</h2>
             {echartsReady && (
@@ -460,7 +460,7 @@ export default function SpatialAnalysisPage() {
         </div>
 
         {/* Footer note */}
-        <p className="mt-8 text-xs text-stone-400 leading-relaxed">
+        <p className="mt-6 text-[11px] text-stone-400 leading-6">
           数据说明：本页统计分析基于中国电影展示空间数据库（{stats.totalCount} 个样本），
           省级行政区划 GeoJSON 数据来源于 DataV.GeoAtlas（阿里云 DataV 数据可视化平台），
           仅供学术研究使用，不涉及任何商业用途。坐标转换遵循 GeoJSON 标准（WGS84 坐标系，经度在前、纬度在后）。

@@ -41,78 +41,78 @@ const methods = [
 
 export default function MethodPage() {
   return (
-    <div className="min-h-screen bg-film-black text-warm-white">
-      <section className="relative overflow-hidden border-b border-amber-gold/15 px-4 py-16 sm:px-6 lg:px-8">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_24%_18%,rgba(139,26,26,0.28),transparent_28%),radial-gradient(circle_at_78%_10%,rgba(212,160,74,0.12),transparent_24%)]" />
-        <div className="relative mx-auto max-w-5xl">
-          <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-amber-gold/25 bg-amber-gold/10 px-3 py-1 text-xs tracking-[0.22em] text-amber-gold">
+    <div className="min-h-screen bg-[#f5f0e8]">
+      <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
+        {/* Header */}
+        <div className="mb-8">
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-amber-gold/25 bg-amber-gold/10 px-3 py-1 text-xs tracking-[0.16em] text-amber-gold">
             <Search className="h-3.5 w-3.5" />
             RESEARCH METHOD
           </div>
-          <h1 className="font-serif text-4xl leading-tight md:text-6xl">
+          <h1 className="font-serif text-3xl text-stone-950 md:text-4xl">
             研究方法
           </h1>
-          <p className="mt-5 max-w-3xl text-base leading-8 text-warm-white-dim/78 md:text-lg">
+          <p className="mt-4 max-w-3xl text-sm leading-7 text-stone-600 md:text-base">
             这个网站不是普通展示页面，而是一个围绕中国电影展示空间展开的数字人文与博物馆研究项目。
             它把地图、田野照片、展陈观察和电影技术遗产分类组织在同一个档案系统中。
           </p>
         </div>
-      </section>
 
-      <section className="mx-auto grid max-w-6xl gap-5 px-4 py-10 sm:px-6 lg:grid-cols-2 lg:px-8">
-        {methods.map((method, index) => (
-          <article
-            key={method.title}
-            className="rounded-2xl border border-film-black-lighter bg-film-black-light/72 p-6 shadow-xl shadow-black/20"
-          >
-            <div className="mb-5 flex items-start justify-between gap-4">
-              <div>
-                <p className="mb-2 text-xs text-amber-gold/60">
-                  {String(index + 1).padStart(2, '0')}
-                </p>
-                <h2 className="font-serif text-2xl text-warm-white">{method.title}</h2>
+        {/* Method cards */}
+        <div className="grid gap-5 lg:grid-cols-2">
+          {methods.map((method, index) => (
+            <article
+              key={method.title}
+              className="rounded-2xl border border-stone-200 bg-white p-5 shadow-sm"
+            >
+              <div className="mb-4 flex items-start justify-between gap-4">
+                <div>
+                  <p className="mb-2 text-xs text-amber-gold/70">
+                    {String(index + 1).padStart(2, '0')}
+                  </p>
+                  <h2 className="font-serif text-xl text-stone-950">{method.title}</h2>
+                </div>
+                <div className="rounded-xl border border-amber-gold/20 bg-amber-gold/10 p-3 text-amber-gold">
+                  <method.icon className="h-5 w-5" />
+                </div>
               </div>
-              <div className="rounded-xl border border-amber-gold/25 bg-amber-gold/10 p-3 text-amber-gold">
-                <method.icon className="h-5 w-5" />
-              </div>
-            </div>
-            <p className="leading-7 text-warm-white-dim/78">{method.summary}</p>
-            <ul className="mt-5 space-y-3">
-              {method.points.map((point) => (
-                <li key={point} className="flex gap-3 text-sm leading-6 text-warm-white-dim/70">
-                  <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-dark-red" />
-                  <span>{point}</span>
-                </li>
-              ))}
-            </ul>
-          </article>
-        ))}
-      </section>
+              <p className="text-sm leading-7 text-stone-600">{method.summary}</p>
+              <ul className="mt-4 space-y-2.5">
+                {method.points.map((point) => (
+                  <li key={point} className="flex gap-3 text-xs leading-6 text-stone-500">
+                    <span className="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-dark-red" />
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
+            </article>
+          ))}
+        </div>
 
-      <section className="mx-auto max-w-5xl px-4 pb-16 sm:px-6 lg:px-8">
-        <div className="rounded-2xl border border-amber-gold/20 bg-linear-to-br from-amber-gold/10 via-film-black-light to-dark-red/15 p-6 md:p-8">
-          <h2 className="font-serif text-2xl text-warm-white">从地图进入研究现场</h2>
-          <p className="mt-3 max-w-3xl leading-7 text-warm-white-dim/75">
+        {/* CTA section */}
+        <div className="mt-8 rounded-2xl border border-stone-200 bg-white p-6 shadow-sm">
+          <h2 className="font-serif text-xl text-stone-950">从地图进入研究现场</h2>
+          <p className="mt-3 max-w-3xl text-sm leading-7 text-stone-600">
             后续田野照片、场馆笔记和展陈分析会继续接入同一套数据结构，使每一个点位既是地图坐标，也是一个可阅读、可比较、可追踪的研究样本。
           </p>
-          <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+          <div className="mt-5 flex flex-col gap-3 sm:flex-row">
             <Link
               href="/map"
-              className="inline-flex items-center justify-center gap-2 rounded-lg bg-dark-red px-5 py-3 text-sm font-medium text-warm-white hover:bg-dark-red-hover"
+              className="inline-flex items-center justify-center gap-2 rounded-lg bg-dark-red px-5 py-2.5 text-sm font-medium text-white hover:bg-dark-red-hover transition-colors"
             >
               <Map className="h-4 w-4" />
               进入地图
             </Link>
             <Link
               href="/exhibition-routes"
-              className="inline-flex items-center justify-center gap-2 rounded-lg border border-amber-gold/35 px-5 py-3 text-sm font-medium text-amber-gold hover:bg-amber-gold/10"
+              className="inline-flex items-center justify-center gap-2 rounded-lg border border-stone-300 px-5 py-2.5 text-sm font-medium text-stone-700 hover:bg-stone-100 transition-colors"
             >
               <Route className="h-4 w-4" />
               查看展线
             </Link>
           </div>
         </div>
-      </section>
+      </div>
     </div>
   );
 }

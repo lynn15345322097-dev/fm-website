@@ -52,15 +52,14 @@ export default function MapPage() {
   };
 
   return (
-    <div className="relative h-[calc(100vh-4rem)] overflow-hidden bg-[#f5f0e8]">
-      <div className="pointer-events-none absolute inset-0 z-[1] bg-[radial-gradient(circle_at_72%_18%,rgba(212,160,74,0.16),transparent_28%),linear-gradient(90deg,rgba(245,240,232,0.34),rgba(245,240,232,0.04))]" />
+    <div className="relative isolate h-[calc(100dvh-3.5rem)] overflow-hidden bg-[#f5f0e8]">
       {/* Map */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 z-0">
         <MapView museums={filtered} mode={displayMode} showLegend />
       </div>
 
       {/* Display mode toggle */}
-      <div className="absolute top-4 left-1/2 -translate-x-1/2 z-20 flex rounded-lg border border-amber-gold/40 bg-warm-white/90 shadow-lg shadow-stone-300/40 backdrop-blur overflow-hidden">
+      <div className="absolute top-4 left-1/2 -translate-x-1/2 z-[1100] flex rounded-lg border border-amber-gold/40 bg-white/90 shadow-sm shadow-stone-300/40 backdrop-blur overflow-hidden">
         <button
           onClick={() => setDisplayMode('normal')}
           className={`px-4 py-2 text-sm transition-all ${displayMode === 'normal' ? 'bg-amber-gold text-white' : 'text-stone-600 hover:text-stone-900'}`}
@@ -78,14 +77,14 @@ export default function MapPage() {
       {/* Toggle sidebar button */}
       <button
         onClick={() => setSidebarOpen(!sidebarOpen)}
-        className="absolute top-4 left-4 z-20 rounded-lg border border-amber-gold/40 bg-warm-white/90 px-3 py-2 text-sm text-stone-800 shadow-lg shadow-stone-300/40 backdrop-blur hover:border-amber-gold transition-all"
+        className="absolute top-4 left-4 z-[1100] rounded-lg border border-amber-gold/40 bg-white/90 px-3 py-2 text-sm text-stone-800 shadow-sm shadow-stone-300/40 backdrop-blur hover:border-amber-gold transition-all"
       >
         {sidebarOpen ? '收起面板' : '展开筛选'}
       </button>
 
       {/* Sidebar */}
       <div
-        className={`absolute top-0 left-0 h-full z-10 border-r border-amber-gold/25 bg-warm-white/88 shadow-2xl shadow-stone-400/30 backdrop-blur-md transition-all duration-300 ${
+        className={`absolute top-0 left-0 h-full z-[1000] border-r border-amber-gold/25 bg-white/94 shadow-sm shadow-stone-300/30 backdrop-blur-md transition-all duration-300 ${
           sidebarOpen ? 'w-[20rem] translate-x-0' : 'w-[20rem] -translate-x-full'
         }`}
       >

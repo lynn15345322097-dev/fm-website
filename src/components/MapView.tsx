@@ -8,6 +8,7 @@ import { getAllMuseums, getTypeColor } from '@/lib/museums';
 import type { Museum } from '@/types';
 
 import 'leaflet/dist/leaflet.css';
+import 'leaflet.markercluster';
 import 'leaflet.markercluster/dist/MarkerCluster.css';
 import 'leaflet.markercluster/dist/MarkerCluster.Default.css';
 
@@ -29,9 +30,9 @@ function createColoredIcon(color: string, visited: boolean) {
   return L.divIcon({
     className: 'custom-marker',
     html: `<div class="custom-marker-dot" style="background:${color};opacity:${opacity};${borderStyle}"></div>`,
-    iconSize: [14, 14],
-    iconAnchor: [7, 7],
-    popupAnchor: [0, -9],
+    iconSize: [10, 10],
+    iconAnchor: [5, 5],
+    popupAnchor: [0, -7],
   });
 }
 
@@ -149,7 +150,7 @@ export function MapLegend({
   typeColors: Record<string, string>;
 }) {
   return (
-    <div className="absolute bottom-6 right-4 z-20 rounded-lg border border-stone-200 bg-white/90 p-3 shadow-lg shadow-stone-300/30 backdrop-blur text-xs">
+    <div className="absolute bottom-6 right-4 z-[900] rounded-lg border border-stone-200 bg-white/90 p-3 shadow-sm shadow-stone-300/30 backdrop-blur text-xs">
       <p className="mb-2 font-medium text-stone-700">图例</p>
       <div className="space-y-1.5">
         {types.map((type) => (
@@ -241,10 +242,10 @@ export default function MapView({
               const color = ROUTE_COLORS[routeIndex % ROUTE_COLORS.length];
               const icon = L.divIcon({
                 className: 'route-marker',
-                html: `<div style="display:flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;background:${color};color:#fff;font-size:11px;font-weight:700;border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,0.3)">${idx + 1}</div>`,
-                iconSize: [24, 24],
-                iconAnchor: [12, 12],
-                popupAnchor: [0, -14],
+                html: `<div style="display:flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:${color};color:#fff;font-size:10px;font-weight:700;border:1.5px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,0.25)">${idx + 1}</div>`,
+                iconSize: [20, 20],
+                iconAnchor: [10, 10],
+                popupAnchor: [0, -12],
               });
               return (
                 <Marker

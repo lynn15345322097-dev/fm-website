@@ -51,7 +51,7 @@ export default function PhotoGallery({ photos }: Props) {
             onClick={() => setActiveCategory(cat)}
             className={`px-4 py-2 rounded-lg text-sm transition-all ${
               activeCategory === cat
-                ? 'bg-amber-gold text-film-black font-medium'
+                ? 'bg-dark-red text-white font-medium'
                 : 'bg-stone-100 text-stone-600 hover:text-stone-950 hover:bg-stone-200'
             }`}
           >
@@ -63,7 +63,7 @@ export default function PhotoGallery({ photos }: Props) {
 
       {/* Photo grid */}
       {displayed.length === 0 ? (
-        <p className="text-warm-white-dim/60 text-center py-12">
+        <p className="text-stone-400 text-center py-12">
           该分类暂无图片
         </p>
       ) : (

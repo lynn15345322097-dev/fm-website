@@ -13,25 +13,25 @@ export default function MuseumCard({ museum }: Props) {
       className="group block overflow-hidden rounded-xl border border-stone-200 bg-white transition-all duration-300 hover:border-amber-gold/60 hover:shadow-lg hover:shadow-stone-200/70"
     >
       {/* Gradient placeholder banner */}
-      <div className="flex h-36 items-center justify-center bg-linear-to-br from-stone-100 via-white to-amber-50">
-        <span className="px-4 text-center text-lg font-semibold tracking-wide text-stone-400">
+      <div className="flex h-28 items-center justify-center bg-linear-to-br from-stone-100 via-white to-amber-50">
+        <span className="px-4 text-center text-base font-medium text-stone-400">
           {museum.name}
         </span>
       </div>
 
-      <div className="p-5">
-        <h3 className="mb-2 text-lg font-semibold text-stone-950 transition-colors group-hover:text-dark-red">
+      <div className="p-4">
+        <h3 className="mb-1.5 text-base font-semibold text-stone-950 transition-colors group-hover:text-dark-red">
           {museum.name}
         </h3>
 
-        <div className="mb-3 flex items-center gap-1 text-xs text-stone-500">
+        <div className="mb-2.5 flex items-center gap-1 text-xs text-stone-500">
           <MapPin className="w-3 h-3" />
           <span>{museum.province} · {museum.city}</span>
           <span className="mx-2">·</span>
           <span>{museum.nature}</span>
         </div>
 
-        <p className="mb-4 line-clamp-2 text-sm leading-relaxed text-stone-600">
+        <p className="mb-3 line-clamp-2 text-xs leading-6 text-stone-600">
           {museum.description}
         </p>
 

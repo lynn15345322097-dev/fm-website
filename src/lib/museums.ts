@@ -1,7 +1,37 @@
 import museumsData from '../../data/museums.json';
-import type { Museum } from '@/types';
+import photosData from '../../data/photos.json';
+import exhibitionsData from '../../data/exhibitions.json';
+import type { Museum, PhotoRecord, ExhibitionRecord } from '@/types';
 
-const museums: Museum[] = museumsData as Museum[];
+const museums: Museum[] = museumsData as unknown as Museum[];
+const photos: PhotoRecord[] = photosData as PhotoRecord[];
+const exhibitions: ExhibitionRecord[] = exhibitionsData as ExhibitionRecord[];
+
+export function getAllPhotos(): PhotoRecord[] {
+  return photos;
+}
+
+export function getPhotosByMuseum(museumId: string): PhotoRecord[] {
+  return photos.filter((p) => p.museum_id === museumId);
+}
+
+export function getPhotosByExhibition(exhibitionId: string): PhotoRecord[] {
+  return photos.filter((p) => p.exhibition_id === exhibitionId);
+}
+
+export function getAllExhibitions(): ExhibitionRecord[] {
+  return exhibitions;
+}
+
+export function getExhibitionRecordById(id: string): ExhibitionRecord | undefined {
+  return exhibitions.find((e) => e.id === id);
+}
+
+export function getExhibitionsByMuseum(museumId: string): ExhibitionRecord[] {
+  return exhibitions.filter(
+    (e) => e.museum_ids.includes(museumId)
+  );
+}
 
 export function getAllMuseums(): Museum[] {
   return museums;

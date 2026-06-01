@@ -20,15 +20,15 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-film-black/78 backdrop-blur-md border-b border-film-black-lighter">
+    <nav className="sticky top-0 z-50 bg-[#f5f0e8]/95 backdrop-blur-md border-b border-stone-200 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-14">
           <Link
             href="/"
-            className="flex items-center gap-2 text-warm-white hover:text-amber-gold transition-colors"
+            className="flex items-center gap-2 text-stone-900 hover:text-dark-red transition-colors"
           >
-            <Film className="w-5 h-5" />
-            <span className="text-base font-medium tracking-normal">线上图谱</span>
+            <Film className="w-4 h-4" />
+            <span className="text-base font-medium">线上图谱</span>
           </Link>
 
           {/* Desktop nav */}
@@ -42,10 +42,10 @@ export default function Navbar() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm transition-all ${
+                  className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm transition-colors ${
                     isActive
-                      ? 'text-amber-gold bg-amber-gold/10'
-                      : 'text-warm-white-dim hover:text-warm-white hover:bg-warm-white/5'
+                      ? 'bg-amber-100 text-amber-900 font-medium'
+                      : 'text-stone-600 hover:text-stone-900 hover:bg-stone-100'
                   }`}
                 >
                   <item.icon className="w-4 h-4" />
@@ -58,7 +58,7 @@ export default function Navbar() {
           {/* Mobile toggle */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden text-warm-white p-2 hover:text-amber-gold transition-colors"
+            className="md:hidden text-stone-700 p-2 hover:text-dark-red transition-colors"
             aria-label="Toggle navigation"
           >
             {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -68,7 +68,7 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="md:hidden border-t border-film-black-lighter bg-film-black/95 backdrop-blur-md">
+        <div className="md:hidden border-t border-stone-200 bg-[#f5f0e8]/98 backdrop-blur-md">
           <div className="px-4 py-3 space-y-1">
             {NAV_ITEMS.map((item) => {
               const isActive =
@@ -80,10 +80,10 @@ export default function Navbar() {
                   key={item.href}
                   href={item.href}
                   onClick={() => setMobileOpen(false)}
-                  className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition-all ${
+                  className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition-colors ${
                     isActive
-                      ? 'text-amber-gold bg-amber-gold/10'
-                      : 'text-warm-white-dim hover:text-warm-white hover:bg-warm-white/5'
+                      ? 'bg-amber-100 text-amber-900 font-medium'
+                      : 'text-stone-600 hover:text-stone-900 hover:bg-stone-100'
                   }`}
                 >
                   <item.icon className="w-4 h-4" />
