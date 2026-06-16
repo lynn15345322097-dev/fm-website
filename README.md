@@ -1,3 +1,14 @@
+> ⚠️ **本项目已迁移 / Repository moved**
+>
+> 本仓库已停止更新，最新工作集中在 **影迹图谱 FilmGeo Atlas**：
+> 👉 https://github.com/lynn15345322097-dev/film-on-display
+>
+> This repository is no longer maintained. Continued development of the
+> China film exhibition spaces atlas has moved to **FilmGeo Atlas**:
+> 👉 https://github.com/lynn15345322097-dev/film-on-display
+
+---
+
 # 中国电影展示空间线上图谱
 
 Chinese Film Exhibition Spaces — Online Atlas & Open Archive
